@@ -1,0 +1,247 @@
+@import "variables";
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.about {
+    background: black;
+}
+header {
+    width: 100px;
+    height: 100%;
+    position: fixed;
+    padding: 160px 40px;
+    z-index: 13;
+
+    &::before {
+        height: 80px;
+        width: 1px;
+        background: white;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+    }
+    &::after {
+        height: 80px;
+        width: 1px;
+        background: white;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+    }
+
+    .nav-items-about,
+    .nav-items-skills,
+    .nav-items-projects,
+    .nav-items-contact {
+        height: 100%;
+        @include flex;
+        li {
+            list-style: none;
+            transform: rotate(270deg);
+            a {
+                text-decoration: none;
+                color: white;
+                padding: 10px 20px;
+                // border-radius: 100px;
+                &:hover {
+                    background: $violet;
+                    cursor: url(../assets/cursorBlack.png), auto !important;
+                }
+            }
+            // &:first-child a{
+            //     background: $violet;
+            // }
+        }
+    }
+}
+
+.fixed-name {
+    position: absolute;
+    width: 100%;
+    height: 330px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 0 0 140px;
+    z-index: 10;
+    h1 {
+        font-size: 230px;
+        color: white;
+        font-weight: 400;
+    }
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+
+.caroussel {
+    // background: red;
+    position: relative;
+    height: 100vh;
+    padding: 70px 200px;
+
+    img {
+        max-width: 370px;
+        position: absolute;
+        z-index: 2;
+        &:nth-child(2) {
+            transform: rotate(8deg);
+        }
+        &:nth-child(3) {
+            transform: rotate(16deg);
+        }
+        &:hover {
+            cursor: url(../assets/cursorRed.png), auto !important;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        height: 230px;
+        width: 230px;
+        background: $violet;
+        bottom: 7%;
+        right: 0;
+        border-radius: 200px;
+        z-index: 0;
+    }
+}
+.text-div {
+    padding: 100px;
+    color: white;
+    &::after {
+        content: "";
+        position: absolute;
+        height: 230px;
+        width: 30px;
+        background: $violet;
+        bottom: 7%;
+        right: 0;
+        z-index: 0;
+    }
+    h1 {
+        font-size: 70px;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 30px;
+        font-weight: 400;
+        color: #ddd;
+    }
+}
+
+header .nav-items-about li.active a {
+    background: $violet;
+}
+// header .nav-items-projects li:nth-child(2) a {
+//     background: $violet;
+// }
+// header .nav-items-skills li:nth-child(3) a {
+//     background: $violet;
+// }
+// header .nav-items-contact li:nth-child(4) a {
+//     background: $violet;
+// }
+
+@media (max-width : 1200px) {
+    .fixed-name {
+        padding: 0 0 0 240px;
+
+        width: 80%;
+        height: 200px;
+        h1 {
+            font-size: 150px;
+        }
+    }
+
+    .caroussel {
+        img {
+            max-width: 340px;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            height: 140px;
+            width: 140px;
+            background: $violet;
+            bottom: 7%;
+            right: -15%;
+            border-radius: 200px;
+            z-index: 0;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        width: 70px;
+        height: 667px;
+    }
+
+    .fixed-name {
+        padding: 0 0 0 70px;
+        width: 10%;
+        height: 100px;
+        h1 {
+            font-size: 50px;
+        }
+    }
+
+    .caroussel {
+        padding: 0;
+        height: 100vh;
+        position: relative;
+        img {
+            max-width: 140px;
+            position: absolute;
+            bottom: 10%;
+            left: 60px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background: #5b64b3;
+            bottom: 7%;
+            left: 180px;
+            border-radius: 200px;
+            z-index: 0;
+        }
+    }
+
+    .text-div {
+        padding: 40px;
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            margin-right: 70px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 10px;
+            background: #5b64b3;
+            bottom: 7%;
+            right: 0;
+            z-index: 0;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@import "variables";
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact {
+    width: 100%;
+    height: 100vh;
+    background: black;
+
+}
+
+.form-wrapper {
+    width: 100%;
+    height: 100vh;
+    @include flex ; 
+    .form {
+        background: $violet;
+        width: 500px;
+        height: 520px;
+        padding: 70px 100px;
+        // @include flex-column ; 
+        position: relative;
+
+        &::after {
+            content: "";
+            height: 120px;
+            width: 120px;
+            background: white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 100px;
+            box-shadow: 0 5px 0 rgba($color: #000000, $alpha: 1.0),
+            0 15px 0 rgba($color: #000000, $alpha: 0.3) , 
+            0 25px 0 rgba($color: #000000, $alpha: .1);
+            transform: translate(-50px , -50px);
+
+        }
+        input , textarea {
+            padding: 10px;
+            width: 300px;
+            outline: none;
+            border: none;
+            background: white;
+            margin-bottom: 30px;
+        }
+        input[placeholder = "firstname"] {
+            width: 140px;
+            margin-right: 20px;
+        }
+        input[placeholder = "lastname"] {
+            width: 140px;
+        }
+        input[type = "submit" ] {
+            width: 140px;
+            background: #41498f;
+            border: 1px solid white;
+            color: white;
+            cursor: pointer;
+        }
+        // textarea {
+        //     width: 300px;
+        // }
+        
+    }
+
+}
+
+.fixed-contact {
+    position: absolute;
+    width: 100%;
+    height: 330px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 0 0 140px;
+    z-index: 10;
+    h1 {
+        font-size: 230px;
+        color: white;
+        font-weight: 400;
+    }
+}

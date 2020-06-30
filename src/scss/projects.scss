@@ -1,0 +1,80 @@
+@import "variables";
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    position: relative;
+}
+
+.projects-content {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 300px;
+
+    @include flex;
+    .next {
+        position: relative;
+        color: white;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        z-index: 100;
+        &::before {
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background: white;
+            top: 50%;
+            transform: translateX(-140%);
+            content: "";
+        }
+    }
+    .prev {
+        color: white;
+        background: none;
+        outline: none;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        z-index: 100;
+        &::after {
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background: white;
+            top: 50%;
+            transform: translateX(30%);
+            content: "";
+        }
+    }
+
+    img {
+        width: 500px;
+        z-index: 10;
+    }
+}
+
+.fixed-projects {
+    position: absolute;
+    width: 100%;
+    height: 330px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 0 0 340px;
+    z-index: 9;
+    h1 {
+        font-size: 230px;
+        color: white;
+        font-weight: 400;
+    }
+}
